@@ -1,4 +1,5 @@
 PolerD0ckerExamples
+
 ==========
 
 This project just for fan.
@@ -11,14 +12,7 @@ This project just for fan.
       JS^\__/  qKL
      dZP        qKRb
     dZP          qKKb
-   fZP            SMMb
-   HZM            MMMM
-   FqM            MMMM
- __| ".        |\dS"qML
- |    `.       | `' \Zq
-_)      \.___.,|     .'
-\____   )MMMMMM|   .'
-     `-'       `--' 
+ 
 
 
 Links to "stolen" code I'm will show like this. 
