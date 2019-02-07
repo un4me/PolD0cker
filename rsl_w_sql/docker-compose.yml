@@ -2,7 +2,25 @@ version: '3'
 services:
   rsyslogm:
     build: ./rcl
+    restart: always
     ports:
-     - "5000:5000"
-  redis:
-    image: "redis:alpine"
+     - "515:514"
+    volumes: 
+      - /srv/rsyst:/var/log
+    environment:
+      - TZ=Europe/Moscow
+  db:
+    image: mariadb
+    restart: always
+    volumes: 
+      - /srv/rsql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: super2man2
+  loganalyzer:
+    image: instrutordocker/dexter-loganalyzer-banco
+    restart: always
+    ports:
+      - 188:8080
+    volumes: 
+      - /srv/logan/log:/mnt/log/
+      - /srv/logan/http:/var/www/html/
