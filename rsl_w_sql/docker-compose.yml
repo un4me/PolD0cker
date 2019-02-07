@@ -11,7 +11,7 @@ services:
     build: ./rcl
     restart: always
     ports:
-     - "515:514/udp"
+     - "514:514/udp"
     volumes: 
       - /srv/rsyst:/var/log
     environment:
@@ -22,5 +22,5 @@ services:
     ports:
       - 188:8080
     volumes: 
-      - /srv/logan/log:/mnt/log/
+#      - /srv/logan/log:/mnt/log/
       - /srv/logan/http:/var/www/html/
