@@ -4,7 +4,7 @@ services:
     build: ./rcl
     restart: always
     ports:
-     - "515:514"
+     - "515:514/udp"
     volumes: 
       - /srv/rsyst:/var/log
     environment:
