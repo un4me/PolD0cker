@@ -24,6 +24,13 @@ services:
 #      - /srv/rsyst:/var/log
     environment:
       - TZ=Europe/Moscow
+      - RADIUS_LISTEN_IP=* 
+      - RADIUS_CLIENTS=secret@192.168.200.88
+      - RADIUS_SQL=true 
+      - RADIUS_DB_HOST=mysql 
+      - RADIUS_DB_NAME=freeradius 
+      - RADIUS_DB_USERNAME=freeradius 
+      - RADIUS_DB_PASSWORD=radius5trongPa55 
 #  web:
 #    image: instrutordocker/dexter-loganalyzer-banco
 #    restart: always
