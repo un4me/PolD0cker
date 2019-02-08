@@ -11,7 +11,9 @@ services:
     build: ./rcl
     restart: always
     ports:
-     - "514:514/udp"
+      - "514:514/udp"
+    depends_on:
+      - db
     volumes: 
       - /srv/rcl/log:/var/log
     environment:
@@ -21,5 +23,7 @@ services:
     restart: always
     ports:
       - 188:8080
+    depends_on:
+      - db
     volumes: 
       - /srv/rcl/www:/var/www/html/
