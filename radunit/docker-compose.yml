@@ -1,0 +1,32 @@
+version: '3'
+services:
+  rdb:
+    image: mariadb
+    restart: always
+    volumes: 
+      - /srv/radius/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: pain0fRoot
+      MYSQL_DATABASE: freeradius
+      MYSQL_USER: freeradius
+      MYSQL_PASSWORD: radius5trongPa55
+  radiusproc:
+    build: ./radius
+    links:
+     - "mysql:rdb"
+    restart: always
+    ports:
+     - "1812:1812/udp"
+     - "1813:1813/udp"
+#    volumes: 
+#      - /srv/rsyst:/var/log
+    environment:
+      - TZ=Europe/Moscow
+  web:
+    image: instrutordocker/dexter-loganalyzer-banco
+    restart: always
+    ports:
+      - 888:8080
+    volumes: 
+      - /srv/logan/log:/mnt/log/
+      - /srv/logan/http:/var/www/html/
