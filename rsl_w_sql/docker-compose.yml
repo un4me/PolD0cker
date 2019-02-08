@@ -4,7 +4,7 @@ services:
     image: mariadb
     restart: always
     volumes: 
-      - /srv/rsql:/var/lib/mysql
+      - /srv/rcl/mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: super2man2
   rsyslogm:
@@ -13,7 +13,7 @@ services:
     ports:
      - "515:514/udp"
     volumes: 
-      - /srv/rsyst:/var/log
+      - /srv/rcl/log:/var/log
     environment:
       - TZ=Europe/Moscow
   loganalyzer:
@@ -22,5 +22,4 @@ services:
     ports:
       - 188:8080
     volumes: 
-      - /srv/logan/log:/mnt/log/
-      - /srv/logan/http:/var/www/html/
+      - /srv/rcl/www:/var/www/html/
