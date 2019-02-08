@@ -15,7 +15,7 @@ services:
     depends_on:
       - rdb
     links:
-     - "mysql:rdb"
+     - "rdb:mysql"
     restart: always
     ports:
      - "1812:1812/udp"
