@@ -12,6 +12,8 @@ services:
       MYSQL_PASSWORD: radius5trongPa55
   radiusproc:
     build: ./radius
+    depends_on:
+      - rdb
     links:
      - "mysql:rdb"
     restart: always
@@ -22,11 +24,11 @@ services:
 #      - /srv/rsyst:/var/log
     environment:
       - TZ=Europe/Moscow
-  web:
-    image: instrutordocker/dexter-loganalyzer-banco
-    restart: always
-    ports:
-      - 888:8080
-    volumes: 
-      - /srv/logan/log:/mnt/log/
-      - /srv/logan/http:/var/www/html/
+#  web:
+#    image: instrutordocker/dexter-loganalyzer-banco
+#    restart: always
+#    ports:
+#      - 888:8080
+#    volumes: 
+#      - /srv/logan/log:/mnt/log/
+#      - /srv/logan/http:/var/www/html/
